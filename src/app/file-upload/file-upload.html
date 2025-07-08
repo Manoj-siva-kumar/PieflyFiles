@@ -1,0 +1,33 @@
+<div class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl w-[500px] p-6 relative shadow-lg">
+    
+    <!-- Close Button -->
+    <button class="absolute top-4 right-4 text-gray-500  text-4xl hover:text-[#0a4264] mr-2 hover:font-normal font-light" (click)="close()">&times;</button>
+
+    <!-- Title -->
+    <h2 class="text-xl font-semibold text-[#0A3A58] mb-6">Tower Upload</h2>
+
+    <!-- Upload Area -->
+    <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-gray-600">
+      <p>Drag & drop here</p>
+      <p class="my-2">or</p>
+      
+      <!-- Hidden File Input -->
+      <input type="file" id="fileInput" accept=".geojson" class="hidden">
+      
+      <!-- File Upload Label -->
+      <label for="fileInput" class="text-blue-600 font-medium underline cursor-pointer">
+        select file’s
+      </label>
+
+      <p class="text-xs text-gray-400 mt-4">Only .geojson file is acceptable</p>
+    </div>
+
+    <!-- Upload Button -->
+    <div class="flex justify-end mt-6">
+      <button class="bg-[#0A3A58] text-white rounded-full px-6 py-2 text-sm font-medium hover:bg-[#082c43]">
+        Upload & Close
+      </button>
+    </div>
+  </div>
+</div>

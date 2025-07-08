@@ -1,0 +1,27 @@
+<div class="bg-white p-6 rounded-2xl shadow-md w-full">
+
+  <!-- Header -->
+  <div class="flex items-start justify-between mb-4">
+    <h2 class="text-2xl font-semibold text-[#0a4264]">Remarks</h2>
+   <button (click)="closeDialog()" class="relative -top-5 text-gray-400 font-extralight hover:text-gray-600 text-6xl leading-none -mt-2">&times;</button>
+
+  </div>
+
+  <!-- Label -->
+  <label class="block text-sm font-semibold text-[#0a4264] mb-1">Remarks</label>
+  
+  <!-- Textarea -->
+  <textarea
+    placeholder="Enter remarks here..."
+    class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0a4264] focus:border-[#0a4264] resize-none"
+    rows="3">
+  </textarea>
+
+  <!-- Button -->
+  <div class="flex justify-end mt-6">
+    <button  class="bg-[#0a4264] text-white text-sm font-semibold px-6 py-2 rounded-full hover:bg-[#0f2a45] transition">
+      Add & Close
+    </button>
+  </div>
+</div>
+

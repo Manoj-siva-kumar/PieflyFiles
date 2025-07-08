@@ -1,0 +1,98 @@
+<body class=" bg-zinc-100">
+    <!-- Header -->
+    <div class="flex justify-between items-center px-6 mb-2 py-3">
+        <h1 class="text-3xl font-medium font-[arial] text-[#0a4264]">3D View Manager</h1>
+
+        <div class="flex items-center border border-[#0a4264] rounded-full overflow-hidden w-52 h-16">
+
+            <!-- Annotation Button -->
+            <button (click)="selected = 'annotation'" [ngClass]="selected === 'annotation' 
+          ? 'bg-[#0a4264] text-white' 
+          : 'text-zinc-400 hover:bg-gray-200'"
+                class="w-20 h-16 flex items-center justify-center rounded-full transition-colors duration-200">
+                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="Square_ruler">
+                            <path
+                                d="M460.4714,434.1361,77.834,51.4988C66.1083,39.7741,45.9828,48.0862,45.9828,64.7114v32.287h30.625a13.125,13.125,0,0,1,0,26.25H45.9828v22.1377h17.5a13.125,13.125,0,0,1,0,26.25h-17.5v22.1378h17.5a13.125,13.125,0,1,1,0,26.25h-17.5v22.1377h30.625a13.125,13.125,0,0,1,0,26.25H45.9828v22.05h17.5a13.125,13.125,0,0,1,0,26.25h-17.5V338.85h17.5a13.125,13.125,0,0,1,0,26.25h-17.5v22.1367h30.625a13.125,13.125,0,0,1,0,26.25H45.9828v33.8624a18.6539,18.6539,0,0,0,18.6386,18.6376H98.4828v-30.625a13.125,13.125,0,0,1,26.25,0v30.625h22.1378v-17.5a13.125,13.125,0,0,1,26.25,0v17.5h22.1378v-17.5a13.125,13.125,0,0,1,26.25,0v17.5h22.1377v-30.625a13.125,13.125,0,0,1,26.25,0v30.625h22.1378v-17.5a13.125,13.125,0,0,1,26.25,0v17.5h22.05v-17.5a13.125,13.125,0,0,1,26.25,0v17.5h22.1378v-30.625a13.125,13.125,0,0,1,26.25,0v30.625h32.3746C463.9705,465.9863,472.2847,445.95,460.4714,434.1361Zm-309.4886-73.15V246.887l114.1,114.0993Z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+
+            <!-- Reports Button -->
+            <button (click)="selected = 'reports'" [ngClass]="selected === 'reports' 
+          ? 'bg-[#0a4264] text-white' 
+          : 'text-zinc-400 hover:bg-gray-200'"
+                class="w-20 h-16 flex items-center justify-center rounded-full transition-colors duration-200">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M3 8.2C3 7.07989 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H9.67452C10.1637 5 10.4083 5 10.6385 5.05526C10.8425 5.10425 11.0376 5.18506 11.2166 5.29472C11.4184 5.4184 11.5914 5.59135 11.9373 5.93726L12.0627 6.06274C12.4086 6.40865 12.5816 6.5816 12.7834 6.70528C12.9624 6.81494 13.1575 6.89575 13.3615 6.94474C13.5917 7 13.8363 7 14.3255 7H17.8C18.9201 7 19.4802 7 19.908 7.21799C20.2843 7.40973 20.5903 7.71569 20.782 8.09202C21 8.51984 21 9.0799 21 10.2V15.8C21 16.9201 21 17.4802 20.782 17.908C20.5903 18.2843 20.2843 18.5903 19.908 18.782C19.4802 19 18.9201 19 17.8 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </g>
+                </svg>
+            </button>
+
+            <!-- Inventory Button -->
+            <button (click)="selected = 'inventory'" [ngClass]="selected === 'inventory' 
+        ? 'bg-[#0a4264] text-white' 
+        : 'text-zinc-400 hover:bg-gray-200'"
+                class="w-20 h-16 flex items-center justify-center rounded-full transition-colors duration-200">
+
+                <svg class="w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Path 1 -->
+                    <path opacity="0.5" [attr.opacity]="selected === 'inventory' ? '1' : '0.5'"
+                        [attr.fill]="selected === 'inventory' ? 'white' : 'currentColor'"
+                        d="M21 15.9983V9.99826C21 7.16983 21 5.75562 20.1213 4.87694C19.3529 4.10856 18.175 4.01211 16 4H8C5.82497 4.01211 4.64706 4.10856 3.87868 4.87694C3 5.75562 3 7.16983 3 9.99826V15.9983C3 18.8267 3 20.2409 3.87868 21.1196C4.75736 21.9983 6.17157 21.9983 9 21.9983H15C17.8284 21.9983 19.2426 21.9983 20.1213 21.1196C21 20.2409 21 18.8267 21 15.9983Z" />
+
+                    <!-- Path 2 -->
+                    <path [attr.fill]="selected === 'inventory' ? '#0a4264' : 'currentColor'"
+                        d="M8 3.5C8 2.67157 8.67157 2 9.5 2H14.5C15.3284 2 16 2.67157 16 3.5V4.5C16 5.32843 15.3284 6 14.5 6H9.5C8.67157 6 8 5.32843 8 4.5V3.5Z" />
+
+                    <!-- Path 3 -->
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        [attr.fill]="selected === 'inventory' ? '#0a4264' : 'currentColor'"
+                        d="M15.5483 10.4883C15.8309 10.7911 15.8146 11.2657 15.5117 11.5483L11.226 15.5483C10.9379 15.8172 10.4907 15.8172 10.2025 15.5483L8.48826 13.9483C8.18545 13.6657 8.16909 13.1911 8.45171 12.8883C8.73434 12.5855 9.20893 12.5691 9.51174 12.8517L10.7143 13.9741L14.4883 10.4517C14.7911 10.1691 15.2657 10.1855 15.5483 10.4883Z" />
+                </svg>
+            </button>
+
+
+        </div>
+
+
+        <!-- Download Button -->
+        <button
+            class="bg-[#0a4264] w-60 h-16 text-white px-5 py-2 rounded-full flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg>
+            <span class="font-[Arial] font-thin text-lg">Download Model</span>
+        </button>
+
+    </div>
+
+    <!-- Main Section -->
+    <div class="flex h-[calc(100vh-64px)] gap-4  bg-zinc-100">
+        <!-- Image Area -->
+        <div class="w-[72%] h-full ml-6 bg-white border-white rounded-3xl p-4">
+            <img  src="assets/Antenna.png" alt="3D Tower" class="w-full h-full object-fill rounded-lg shadow" />
+        </div>
+
+
+        <!-- Sidebar -->
+        <div class="w-[25%]  mr-4 mt-1  bg-white shadow-lg rounded-3xl">
+            <app-annoation *ngIf="selected === 'annotation'"></app-annoation>
+            <app-reports *ngIf="selected === 'reports'"></app-reports>
+            <app-inventory *ngIf="selected === 'inventory'"></app-inventory>
+        </div>
+    </div>
+</body>

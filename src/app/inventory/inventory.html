@@ -1,0 +1,291 @@
+<div class="py-2 px-3 font-[arial] bg-white  rounded-xl space-y-4 text-gray-800">
+  <div class="w-full h-full px-2 py-2 ">
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-semibold mb-1 text-[#0a4264]">Inventory</h2>
+      <div class="flex items-center space-x-2">
+        <button class="text-gray-400 hover:text-gray-600">
+          <svg class="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M19 3H5C3.58579 3 2.87868 3 2.43934 3.4122C2 3.8244 2 4.48782 2 5.81466V6.50448C2 7.54232 2 8.06124 2.2596 8.49142C2.5192 8.9216 2.99347 9.18858 3.94202 9.72255L6.85504 11.3624C7.49146 11.7206 7.80967 11.8998 8.03751 12.0976C8.51199 12.5095 8.80408 12.9935 8.93644 13.5872C9 13.8722 9 14.2058 9 14.8729L9 17.5424C9 18.452 9 18.9067 9.25192 19.2613C9.50385 19.6158 9.95128 19.7907 10.8462 20.1406C12.7248 20.875 13.6641 21.2422 14.3321 20.8244C15 20.4066 15 19.4519 15 17.5424V14.8729C15 14.2058 15 13.8722 15.0636 13.5872C15.1959 12.9935 15.488 12.5095 15.9625 12.0976C16.1903 11.8998 16.5085 11.7206 17.145 11.3624L20.058 9.72255C21.0065 9.18858 21.4808 8.9216 21.7404 8.49142C22 8.06124 22 7.54232 22 6.50448V5.81466C22 4.48782 22 3.8244 21.5607 3.4122C21.1213 3 20.4142 3 19 3Z"
+                fill="currentColor"></path>
+            </g>
+          </svg>
+        </button>
+        <button class="hover:text-gray-600">
+          <svg class="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
+                stroke="currentColor" stroke-width="1.2"></path>
+              <path
+                d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                stroke="white" stroke-width="1.2"></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Tabs -->
+    <div class="flex border mx-auto border-[#0a4264] rounded-full overflow-hidden w-fit text-sm mb-1">
+      <button class="px-4 transition rounded-3xl"
+        [ngClass]="selectedMainTab === 'antenna' ? 'bg-[#0a4264] text-white' : 'text-gray-400'"
+        (click)="selectMainTab('antenna')">Antenna</button>
+      <button class="px-4 py-1 transition rounded-3xl"
+        [ngClass]="selectedMainTab === 'module' ? 'bg-[#0a4264] text-white' : 'text-gray-400'"
+        (click)="selectMainTab('module')">Module</button>
+      <button class="px-4 py-1 transition rounded-3xl"
+        [ngClass]="selectedMainTab === 'ground' ? 'bg-[#0a4264] text-white' : 'text-gray-400'"
+        (click)="selectMainTab('ground')">Ground</button>
+    </div>
+
+    <!-- Summary -->
+    <div class="flex justify-between items-center text-sm text-gray-600 my-2">
+      <div>
+        <input type="checkbox" class="mr-1  accent-[#0a4264] hover:cursor-pointer">
+        <span>9 Assets</span>
+      </div>
+      <div class="flex items-end gap-1  mr-2">
+        <svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path opacity="0.1" d="M21 12H12V3H15.024C19.9452 3 21 4.05476 21 8.976V12Z" fill="none"></path>
+            <path opacity="0.1" d="M3 15.024V12H12V21H8.976C4.05476 21 3 19.9452 3 15.024Z" fill="none"></path>
+            <path
+              d="M3 8.976C3 4.05476 4.05476 3 8.976 3H15.024C19.9452 3 21 4.05476 21 8.976V15.024C21 19.9452 19.9452 21 15.024 21H8.976C4.05476 21 3 19.9452 3 15.024V8.976Z"
+              stroke="#323232" stroke-width="2"></path>
+            <path d="M12 3V21" stroke="#323232" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M21 12L3 12" stroke="#323232" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            </path>
+          </g>
+        </svg>
+        <svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path opacity="0.1"
+              d="M19 3H5C3.89543 3 3 3.89543 3 5V6.17157C3 6.70201 3.21071 7.21071 3.58579 7.58579L9.41421 13.4142C9.78929 13.7893 10 14.298 10 14.8284V20V20.2857C10 20.9183 10.7649 21.2351 11.2122 20.7878L12 20L13.4142 18.5858C13.7893 18.2107 14 17.702 14 17.1716V14.8284C14 14.298 14.2107 13.7893 14.5858 13.4142L20.4142 7.58579C20.7893 7.21071 21 6.70201 21 6.17157V5C21 3.89543 20.1046 3 19 3Z"
+              fill="none"></path>
+            <path
+              d="M19 3H5C3.89543 3 3 3.89543 3 5V6.17157C3 6.70201 3.21071 7.21071 3.58579 7.58579L9.41421 13.4142C9.78929 13.7893 10 14.298 10 14.8284V20V20.2857C10 20.9183 10.7649 21.2351 11.2122 20.7878L12 20L13.4142 18.5858C13.7893 18.2107 14 17.702 14 17.1716V14.8284C14 14.298 14.2107 13.7893 14.5858 13.4142L20.4142 7.58579C20.7893 7.21071 21 6.70201 21 6.17157V5C21 3.89543 20.1046 3 19 3Z"
+              stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+        </svg>
+        <svg class="w-4 h-4 text-zinc-600" fill="#000000" viewBox="0 0 256 256" id="Flat"
+          xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M200,128a8.00008,8.00008,0,0,1-8,8H64a8,8,0,0,1,0-16H192A8.00008,8.00008,0,0,1,200,128Zm32-56H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm-80,96H104a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16Z">
+            </path>
+          </g>
+        </svg>
+
+        <svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
+              stroke="currentColor" stroke-width="1.2"></path>
+            <path
+              d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+              stroke="currentColor" stroke-width="1.2"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Asset Row -->
+    <div class="rounded border px-2 py-2 -ml-2">
+      <div class="flex justify-between items-center mb-2">
+        <div class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#0a4264] hover:cursor-pointer" [(ngModel)]="showDetails"
+            name="assetToggle">
+          <div class="w-5 h-5 rounded-full bg-[#0a4264] flex items-center justify-center text-white text-xs">
+            <svg class="w-4 h-4" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M12,10,3,6l9-4,9,4Zm-1,2L3,8V18l8,4Zm10,6V8l-8,4V22Z"></path>
+              </g>
+            </svg>
+          </div>
+
+
+          <span class="text-sm font-medium capitalize">Antenna 1</span>
+        </div>
+
+        <div class="flex items-end gap-1 text-gray-500">
+          <span class="bg-zinc-200 text-[#0a4264] text-xs px-1  mt-1 rounded-full">23.32 m</span>
+          <span class="bg-zinc-200 text-[#0a4264] text-xs px-1  mt-1 rounded-full">10.6°</span>
+          <svg class="w-4 h-4 text-zinc-500" viewBox="-4 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+            fill="currentColor">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>location</title>
+              <desc>Created with Sketch Beta.</desc>
+              <defs> </defs>
+              <g id="Page-1" stroke="none" stroke-width="1.2" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-104.000000, -411.000000)"
+                  fill="currentColor">
+                  <path
+                    d="M116,426 C114.343,426 113,424.657 113,423 C113,421.343 114.343,420 116,420 C117.657,420 119,421.343 119,423 C119,424.657 117.657,426 116,426 L116,426 Z M116,418 C113.239,418 111,420.238 111,423 C111,425.762 113.239,428 116,428 C118.761,428 121,425.762 121,423 C121,420.238 118.761,418 116,418 L116,418 Z M116,440 C114.337,440.009 106,427.181 106,423 C106,417.478 110.477,413 116,413 C121.523,413 126,417.478 126,423 C126,427.125 117.637,440.009 116,440 L116,440 Z M116,411 C109.373,411 104,416.373 104,423 C104,428.018 114.005,443.011 116,443 C117.964,443.011 128,427.95 128,423 C128,416.373 122.627,411 116,411 L116,411 Z"
+                    id="location" sketch:type="MSShapeGroup"> </path>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
+                stroke="currentColor" stroke-width="1.2"></path>
+              <path
+                d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                stroke="currentColor" stroke-width="1.2"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Show only if checkbox is selected -->
+      <div 
+  [ngClass]="showDetails ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'" 
+  class="transition-all duration-400 ease-in-out overflow-hidden mt-3 space-y-2 text-sm text-gray-700"
+>
+
+        <!-- Inner Tabs -->
+        <div class="flex border  border-gray-300 rounded-full ml-2 overflow-hidden text-sm font-medium w-fit mb-2">
+          <button class="px-3 py-1 rounded-3xl"
+            [ngClass]="selectedInnerTab === 'rotation' ? 'bg-[#0a4264] text-white' : 'text-gray-600'"
+            (click)="selectInnerTab('rotation')">Rotation</button>
+          <button class="px-3 py-1 rounded-3xl"
+            [ngClass]="selectedInnerTab === 'position' ? 'bg-[#0a4264] text-white' : 'text-gray-600'"
+            (click)="selectInnerTab('position')">Position</button>
+          <button class="px-3 py-1 rounded-3xl"
+            [ngClass]="selectedInnerTab === 'size' ? 'bg-[#0a4264] text-white' : 'text-gray-600'"
+            (click)="selectInnerTab('size')">Size</button>
+          <button class="px-3 py-1 rounded-3xl"
+            [ngClass]="selectedInnerTab === 'others' ? 'bg-[#0a4264] text-white' : 'text-gray-600'"
+            (click)="selectInnerTab('others')">Others</button>
+        </div>
+
+        <!-- Forms Based on Tab -->
+        <form class="text-sm transition-all duration-400 ease-in-out">
+          <!-- ROTATION -->
+          <ng-container *ngIf="selectedInnerTab === 'rotation'">
+            <div>
+              <label class="block font-semibold  text-xs text-zinc-500">Azimuth</label>
+              <input type="text" placeholder="Eg.: 10.6"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block font-semibold pt-3 text-xs text-zinc-500">Magnetic Azimuth</label>
+              <input type="text" placeholder="Eg.: 11.1"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block font-semibold pt-3 text-xs text-zinc-500">Down Tilt</label>
+              <input type="text" placeholder="Eg.: 1.2"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+          </ng-container>
+
+          <!-- POSITION -->
+          <ng-container *ngIf="selectedInnerTab === 'position'">
+            <div>
+              <label class="block font-semibold text-xs text-zinc-500">Height from Ground</label>
+              <input type="text" placeholder="Eg.: 11 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Height from Structure</label>
+              <input type="text" placeholder="Eg.: 23 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Height from Sea Level</label>
+              <input type="text" placeholder="Eg.: 23 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+          </ng-container>
+
+          <!-- SIZE -->
+          <ng-container *ngIf="selectedInnerTab === 'size'">
+            <div>
+              <label class="block font-semibold text-xs text-zinc-500">Length</label>
+              <input type="text" placeholder="Eg.: 23 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Width</label>
+              <input type="text" placeholder="Eg.: 333 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Depth</label>
+              <input type="text" placeholder="Eg.: 33.3 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Diameter</label>
+              <input type="text" placeholder="Eg.: 33 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Area</label>
+              <input type="text" placeholder="Eg.: 0.3333 m"
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+          </ng-container>
+
+          <!-- OTHERS -->
+          <ng-container *ngIf="selectedInnerTab === 'others'">
+            <div>
+              <label class="block font-semibold text-xs text-zinc-500">Owner</label>
+              <input type="text" placeholder="Enter owner..."
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Model</label>
+              <input type="text" placeholder="Enter model..."
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Manufacture</label>
+              <input type="text" placeholder="Enter manufacture..."
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Type</label>
+              <input type="text" placeholder="Enter type..."
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Status</label>
+              <input type="text" placeholder="Enter status..."
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+            <div>
+              <label class="block pt-3 font-semibold text-xs text-zinc-500">Customer Asset key</label>
+              <input type="text" placeholder="Enter status..."
+                class="w-full border rounded px-3 py-2 mt-1 focus:ring-2 focus:ring-[#0a4264]">
+            </div>
+          </ng-container>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

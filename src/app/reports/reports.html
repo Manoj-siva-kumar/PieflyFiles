@@ -1,0 +1,147 @@
+<div class="p-4 font-[arial] bg-white rounded-xl shadow space-y-4 text-gray-800">
+  <!-- Header -->
+  <div>
+    <h2 class="text-xl font-semibold">Reports</h2>
+    <label class="text-sm text-gray-500 font-medium block mt-2">Type</label>
+
+    <!-- Dropdown -->
+    <div class="relative w-64">
+      <select
+        class="w-[310px] ml-1 mt-1 border font-medium text-gray-600  border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a4264]">
+        <option>Select</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Generate Button -->
+  <button class="w-full bg-[#0a4264] text-white font-semibold py-2 rounded-full">Generate</button>
+
+  <!-- Search Bar -->
+  <input type="text" placeholder="Search..."
+    class="w-full border-2 border-[#0a4264] rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#0a4264]">
+
+  <!-- Top Bar: checkbox + Download all -->
+  <div class="flex justify-between items-center text-sm text-gray-500">
+    <div class="flex items-center ml-2 space-x-2">
+      <input type="checkbox" id="selectAll" class="form-checkbox accent-[#0a4264] rounded border-gray-400">
+      <label for="selectAll">4 Item</label>
+    </div>
+    <div class="flex items-center space-x-1 cursor-pointer hover:text-gray-700">
+      <span>Download All</span>
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+          d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Report Cards -->
+  <div class="space-y-4">
+    <!-- Report Item -->
+    <div class="border rounded-lg p-3 space-y-2 shadow-sm">
+      <div class="flex justify-between">
+        <div>
+          <h3 class="font-[400] text-black  text-sm pb-2">Report one</h3>
+          <p class="text-xs text-gray-400">5Apr 2025 &commat; 08:00AM</p>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-500">
+          <button><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg></button>
+          <button><svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
+              stroke="currentColor" stroke-width="1"></path>
+            <path
+              d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+              stroke="currentColor" stroke-width="1"></path>
+          </g>
+        </svg></button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <div class="flex items-center gap-2">
+          <input type="checkbox" class="form-checkbox accent-[#0a4264] border-gray-400">
+          <span class="text-xs bg-gray-200 text-[#0a4264] px-2 py-1 rounded-full font-medium">Id: RPRT524568</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copy for Report two -->
+    <div class="border rounded-lg p-3 space-y-2 shadow-sm">
+      <div class="flex justify-between">
+        <div>
+          <h3 class="font-[400] text-black  text-sm pb-2">Report two</h3>
+          <p class="text-xs text-gray-400">15Apr 2025 &commat; 10:00AM</p>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-500">
+          <button><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg></button>
+          <button><svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
+              stroke="currentColor" stroke-width="1"></path>
+            <path
+              d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+              stroke="currentColor" stroke-width="1"></path>
+          </g>
+        </svg></button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <div class="flex items-center gap-2">
+          <input type="checkbox" class="form-checkbox accent-[#0a4264] border-gray-400">
+          <span class="text-xs bg-gray-200 text-[#0a4264] px-2 py-1 rounded-full font-medium">Id: RPRT524568</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report three -->
+    <div class="border rounded-lg p-3 space-y-2 shadow-sm">
+      <div class="flex justify-between">
+        <div>
+          <h3 class="font-[400] text-black  text-sm pb-2">Report three</h3>
+          <p class="text-xs text-gray-400">10Apr 2025 &commat; 09:30AM</p>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-500">
+          <button><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg></button>
+          <button><svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
+              stroke="currentColor" stroke-width="1"></path>
+            <path
+              d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+              stroke="currentColor" stroke-width="1"></path>
+          </g>
+        </svg></button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <div class="flex items-center gap-2">
+          <input type="checkbox" class="form-checkbox accent-[#0a4264] border-gray-400">
+          <span class="text-xs bg-gray-200 text-[#0a4264] px-2 py-1 rounded-full font-medium">Id: RPRT524568</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

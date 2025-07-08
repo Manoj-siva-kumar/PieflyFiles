@@ -1,0 +1,161 @@
+<div class="min-h-screen bg-[#f4f4f4] p-6 font-[arial] text-gray-800">
+    <h1 class="text-3xl font-bold mb-3 text-[#123558]">Defect Detection Manager</h1>
+
+    <div class="flex flex-col md:flex-row gap-3">
+        <!-- Left Section (70% width) -->
+        <div class="w-full md:w-[50%] flex flex-col space-y-3">
+            <div class="bg-white max-h-[720px] rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                <div class="h-full w-full">
+                    <img [src]="imageUrl" alt="Communication Tower" class="w-full h-full object-contain p-2 ">
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+                <div class="flex items-center h-fit gap-3 text-gray-500 mb-4">
+                    <h2 class="text-xl font-semibold mb-3 text-gray-800">Auto detect feedback</h2>
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
+                        <span class="text-sm">Defect count (10)</span>
+                    </div>
+                </div>
+                <div class="p-3 bg-[#f4f4f4] border border-gray-200 rounded-xl mb-4">
+                    <p class="text-gray-900 text-lg">Rust 50% at antenna one bottom Section</p>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <button
+                            class="flex items-center px-4 py-2 border border-gray-300 rounded-full text-[#0a4264] hover:bg-gray-100 transition duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Previous
+                        </button>
+                        <button
+                            class="flex items-center px-7 py-2 border border-gray-300 rounded-full text-[#0a4264] hover:bg-gray-100 transition duration-150">
+                            Next
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button
+                            class="flex items-center text-sm px-6 py-2 bg-[#4CAF50] text-white rounded-full hover:bg-green-600 transition duration-150">
+                            Correct
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </button>
+                        <button (click)="incorrect()"
+                            class="flex text-sm items-center px-6 py-2 bg-[#F44336] text-white rounded-full hover:bg-red-600 transition duration-150">
+                            Incorrect
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <button (click)="add()"
+                            class="flex items-center text-sm px-4 py-2 bg-[#0a4264] opacity-90 text-white rounded-full hover:opacity-100 transition duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section (30% width) -->
+        <div class="w-full md:w-[50%] flex flex-col space-y-3">
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-gray-600 font-medium">Latitude</span>
+                    <span class="font-medium ">{{ latitude }}°</span>
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-gray-600 font-medium">Longitude</span>
+                    <span class="font-medium ">{{ longitude }}°</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600 font-medium">Altitude</span>
+                    <span class="font-medium ">{{ altitude }}°</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl h-screen shadow-lg p-6 flex flex-col border border-gray-200">
+                <h2 class="text-xl font-semibold mb-4  border-b-[2px] border-zinc-300 pb-2 text-[#0a4264] ">Defect List</h2>
+
+                <div *ngIf="defectList.length === 0" class="text-gray-500 italic py-4">No defects found.</div>
+
+                <div class="flex-grow overflow-y-auto pr-2 custom-scrollbar">
+                    <div *ngFor="let defect of defectList; let last = last"
+                        class="flex items-start justify-between py-3" [class.border-b]="!last"
+                        [class.border-gray-200]="!last">
+                        <div class="flex flex-col flex-1 min-w-0 mr-4">
+                            <span class="text-lg font-medium text-gray-900 mb-1">{{ defect.type }} <span
+                                    class="">{{ defect.percentage }}%</span></span>
+                            <div class="flex items-center text-gray-600 text-sm mb-0.5">
+                                <!-- Map Pin SVG Icon -->
+                                <svg class="w-5 h-5 pl-1 mr-1" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64"
+                                    enable-background="new 0 0 64 64" xml:space="preserve" fill="#0a4264">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill="#0a4264"
+                                            d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span class="truncate">{{ defect.location }}</span>
+                            </div>
+                            <div class="flex  items-center text-gray-600 text-xs mb-0.5">
+                                <svg class="w-6 h-6 mr-1" version="1.1" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.375 3C17.1385 3 21 6.86154 21 11.625C21 16.3885 17.1385 20.25 12.375 20.25C11.1454 20.25 9.97426 19.9923 8.914 19.5273L4.62287 20.2399C4.38408 20.2795 4.14084 20.2015 3.96968 20.0303C3.79852 19.8592 3.72049 19.6159 3.76014 19.3771L4.47271 15.086C4.00774 14.0258 3.75001 12.8546 3.75001 11.625C3.75001 6.86154 7.61155 3 12.375 3ZM8.25 9.75C8.25 9.33579 8.58579 9 9 9H12C12.4142 9 12.75 9.33579 12.75 9.75C12.75 10.1642 12.4142 10.5 12 10.5H9C8.58579 10.5 8.25 10.1642 8.25 9.75ZM9 12C8.58579 12 8.25 12.3358 8.25 12.75C8.25 13.1642 8.58579 13.5 9 13.5L15 13.5C15.4142 13.5 15.75 13.1642 15.75 12.75C15.75 12.3358 15.4142 12 15 12L9 12Z"
+                                            fill="#0a4264"></path>
+                                    </g>
+                                </svg>
+                                <span class="text-gray-500 text-xs">{{ defect.section }}</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 flex-shrink-0">
+                            <button (click)="editDefect(defect)"
+                                class="text-[#0a4264]  p-2 rounded-full hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                                aria-label="Edit defect">
+                                <!-- Pencil Square SVG Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-5 h-5">
+                                    <path
+                                        d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                                    <path
+                                        d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                                </svg>
+                            </button>
+                            <button (click)="deleteDefect(defect)"
+                                class="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                aria-label="Delete defect">
+                                <!-- Trash SVG Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
