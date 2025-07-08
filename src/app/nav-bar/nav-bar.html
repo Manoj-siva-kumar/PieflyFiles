@@ -1,0 +1,98 @@
+<div class="h-screen w-20 bg-white flex flex-col items-center py-6 space-y-8 shadow-md">
+    <!-- Logo -->
+    <div class="mb-4">
+        <img src="assets/Logo.png" alt="PIEFLY Logo" class="h-15 w-auto" />
+    </div>
+
+    <div class="flex flex-col items-center space-y-8 text-xs font-medium">
+
+        <!-- HOME -->
+        <!-- HOME -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="setActiveMenu('home')">
+            <div class="px-4 py-2 rounded-full transition-colors duration-300"
+                [ngClass]="selectedMenu === 'home' ? 'bg-[#0a4264]' : 'bg-white hover:bg-zinc-200'">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300"
+                    viewBox="0 0 20 20" fill="currentColor"
+                    [ngClass]="selectedMenu === 'home' ? 'text-white' : 'text-zinc-300'">
+                    <path
+                        d="M10.707 1.293a1 1 0 00-1.414 0L2 8.586V18a1 1 0 001 1h5a1 1 0 001-1v-4h2v4a1 1 0 001 1h5a1 1 0 001-1V8.586l-7.293-7.293z" />
+                </svg>
+            </div>
+            <span class="transition-colors duration-300"
+                [ngClass]="selectedMenu === 'home' ? 'text-[#0a4264] font-semibold' : 'text-gray-500'">
+                Home
+            </span>
+        </div>
+
+
+        <!-- ANALYTICS -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="setActiveMenu('analytics')">
+            <div class="px-4 py-2 rounded-full transition-colors duration-300"
+                [ngClass]="selectedMenu === 'analytics' ? 'bg-[#0a4264]' : 'bg-white hover:bg-zinc-200'">
+                <svg class="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 24 24" [ngClass]="selectedMenu === 'analytics' ? 'text-white' : 'text-zinc-300'">
+                    <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z" />
+                </svg>
+            </div>
+            <span
+                [ngClass]="selectedMenu === 'analytics' ? 'text-[#0a4264] font-semibold' : 'text-gray-500'">Analytics</span>
+        </div>
+
+        <!-- USERS -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="setActiveMenu('users')">
+            <div class="px-4 py-2 rounded-full transition-colors duration-300"
+                [ngClass]="selectedMenu === 'users' ? 'bg-[#0a4264]' : 'bg-white hover:bg-zinc-200'">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 24 24" [ngClass]="selectedMenu === 'users' ? 'text-white' : 'text-zinc-300'">
+                    <path
+                        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                </svg>
+            </div>
+            <span [ngClass]="selectedMenu === 'users' ? 'text-[#0a4264] font-semibold' : 'text-gray-500'">Users</span>
+        </div>
+
+        <!-- ROLES -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="setActiveMenu('roles')">
+            <div class="px-4 py-2 rounded-full transition-colors duration-300"
+                [ngClass]="selectedMenu === 'roles' ? 'bg-[#0a4264]' : 'bg-white hover:bg-zinc-200'">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 24 24" [ngClass]="selectedMenu === 'roles' ? 'text-white' : 'text-zinc-300'">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4s-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+            </div>
+            <span [ngClass]="selectedMenu === 'roles' ? 'text-[#0a4264] font-semibold' : 'text-gray-500'">Roles</span>
+        </div>
+
+        <!-- SUBSCRIPTION -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="setActiveMenu('subscription')">
+            <div class="px-4 py-2 rounded-full transition-colors duration-300"
+                [ngClass]="selectedMenu === 'subscription' ? 'bg-[#0a4264]' : 'bg-white hover:bg-zinc-200'">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="currentColor" [ngClass]="selectedMenu === 'subscription' ? 'text-white' : 'text-zinc-300'">
+                    <path
+                        d="M20,2H14a1,1,0,0,0-.7.29L3,12.55a2,2,0,0,0,0,2.83L8.62,21a2,2,0,0,0,1.41.59h0A2,2,0,0,0,11.45,21L21.71,10.7A1,1,0,0,0,22,10V4A2,2,0,0,0,20,2ZM16.5,9A1.5,1.5,0,1,1,18,7.5,1.5,1.5,0,0,1,16.5,9Z" />
+                </svg>
+            </div>
+            <span [ngClass]="selectedMenu === 'subscription' ? 'text-[#0a4264] font-semibold' : 'text-gray-500'">
+                Subscription
+            </span>
+        </div>
+
+        <!-- PROCESS -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="setActiveMenu('process')">
+            <div class="px-4 py-2 rounded-full transition-colors duration-300"
+                [ngClass]="selectedMenu === 'process' ? 'bg-[#0a4264]' : 'bg-white hover:bg-zinc-200'">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    [ngClass]="selectedMenu === 'process' ? 'text-white' : 'text-zinc-300'">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13 14H14V16H2V14H3V11.5858L6.58579 8L3 4.41421V2H2V0H14V2H13V4.41421L9.41421 8L13 11.5858V14ZM5 12.4142V14H11V12.4142L8 9.41421L5 12.4142Z" />
+                </svg>
+            </div>
+            <span [ngClass]="selectedMenu === 'process' ? 'text-[#0a4264] font-semibold' : 'text-gray-500'">
+                Process
+            </span>
+        </div>
+
+    </div>
+</div>
